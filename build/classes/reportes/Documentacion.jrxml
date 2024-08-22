@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Documentacion" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="88dc2661-4298-4d05-9ab8-d43028ef1229">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="294"/>
+	<property name="ireport.y" value="66"/>
+	<parameter name="gestion" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cantidadCas" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cantidadDDJJ" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cantidadSSU" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     documentos.`fecha_actual` AS documentos_fecha_actual,
+     documentos.`tram` AS documentos_tram,
+     documentos.`nombre` AS documentos_nombre,
+     documentos.`detalle` AS documentos_detalle,
+     documentos.`tipo` AS documentos_tipo,
+     documentos.`trab_re` AS documentos_trab_re,
+     documentos.`cant_hojas` AS documentos_cant_hojas,
+     documentos.`entregado_a` AS documentos_entregado_a,
+     documentos.`fecha_prepar` AS documentos_fecha_prepar,
+     documentos.`fecha_entrega` AS documentos_fecha_entrega
+FROM
+     `documentos` documentos
+WHERE YEAR(documentos.fecha_actual)=$P!{gestion} ORDER BY fecha_actual]]>
+	</queryString>
+	<field name="documentos_fecha_actual" class="java.sql.Date"/>
+	<field name="documentos_tram" class="java.lang.String"/>
+	<field name="documentos_nombre" class="java.lang.String"/>
+	<field name="documentos_detalle" class="java.lang.String"/>
+	<field name="documentos_tipo" class="java.lang.String"/>
+	<field name="documentos_trab_re" class="java.lang.String"/>
+	<field name="documentos_cant_hojas" class="java.lang.String"/>
+	<field name="documentos_entregado_a" class="java.lang.String"/>
+	<field name="documentos_fecha_prepar" class="java.lang.String"/>
+	<field name="documentos_fecha_entrega" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="166" splitType="Stretch">
+			<staticText>
+				<reportElement x="218" y="6" width="361" height="27" uuid="e79ce5a5-653a-4c85-8cf1-484d30beb5e2"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD MAYOR DE SAN SIMÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="61" width="361" height="25" uuid="018cf38b-0077-41b7-9029-914a48f0280b"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE DOCUMENTACIÓN PREPARADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="33" width="361" height="28" uuid="ab660f3a-9904-4b9d-8657-f66201b93847"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPARTAMENTO DE PERSONAL ACADÉMICO]]></text>
+			</staticText>
+			<image>
+				<reportElement x="34" y="0" width="97" height="89" uuid="8e743b5e-141c-486b-aa33-174cebabd17f"/>
+				<imageExpression><![CDATA["src\\M (1).jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="676" y="0" width="100" height="89" uuid="f18bfd66-2124-4239-836f-3fbf997df4cf"/>
+				<imageExpression><![CDATA["src\\PA.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="652" y="119" width="152" height="20" uuid="929d6e79-5f3e-4ff8-a192-d4909c0cfa4a"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="652" y="89" width="150" height="20" uuid="a38816c0-b710-449a-a470-6871eae9563c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[E. Teresa Coronel Vargas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="89" width="72" height="20" uuid="5f59b2ac-6dd2-4d2f-a83c-44401f76b178"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Realizado por:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="119" width="139" height="20" uuid="cfc85c6d-5d4b-4dbb-80ed-13404c524f6e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha generada del reporte:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="95" width="180" height="20" uuid="82c2bbbb-f064-497e-9840-2b0ccf6ad53c"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad de registros del tipo CAS: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="115" width="180" height="20" uuid="c24b7191-a86f-4634-8430-9a547c24319b"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad de registros del tipo DDJJ: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="135" width="180" height="20" uuid="9a78663a-56b1-467b-a553-19b05ee27a6f"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad de registros del tipo SSU: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="202" y="115" width="100" height="20" uuid="6189ec0b-fb5d-4f22-881c-2ca586b1eb76"/>
+				<textFieldExpression><![CDATA[$P{cantidadDDJJ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="135" width="100" height="20" uuid="3f2bf960-4e18-4415-8ed9-c4ca59b8558c"/>
+				<textFieldExpression><![CDATA[$P{cantidadSSU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="95" width="100" height="20" uuid="04f39a9d-edc5-4776-a1fe-a2da2f457321"/>
+				<textFieldExpression><![CDATA[$P{cantidadCas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="86" width="361" height="20" uuid="517f0b3c-029c-48e4-bffa-bb169b89b1f0"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{gestion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="44" height="20" uuid="1445ca87-60b1-4e12-b048-816425d3b39e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="0" width="76" height="20" uuid="01a5813e-d92e-413d-9bdf-d6e84f33dcd2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[  TRAM/HOJ.R]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="0" width="152" height="20" uuid="5dcc0946-b125-41c0-aac3-7db40746f66f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="0" width="89" height="20" uuid="1ea7d392-5f05-4da4-bfa1-5a85d65de211"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SOLICITAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="0" width="43" height="20" uuid="7aeaa51d-5d7e-439b-8271-5bb60a62d1b3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="0" width="142" height="20" uuid="513d89b2-9e61-4b9c-9627-fbb6bb846fad"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TRABAJO REALIZADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="546" y="0" width="33" height="20" uuid="765682ab-edf5-44f5-a542-9b33d01e79ac"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº H.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="579" y="0" width="71" height="20" uuid="751ddf70-4343-4c80-8bdb-1bebaacdf7c0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SE ENTREGO A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="660" y="0" width="71" height="20" uuid="4c783d12-a82b-4912-938e-7a137147475e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[F. PREPARE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="731" y="0" width="71" height="20" uuid="6f6aaf39-30ad-40f6-8c29-8d981bc04fd7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[F. ENTREGA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="67" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="44" height="20" uuid="8fb94325-a76c-4f7c-9f57-5b15de084a2b"/>
+				<textFieldExpression><![CDATA[$F{documentos_fecha_actual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="44" y="0" width="76" height="63" uuid="a8a1cd93-bf97-4733-b4b1-b617d5585800"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{documentos_tram}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="152" height="63" uuid="f359b05a-b410-49fe-ae82-1b5f7f36f36d"/>
+				<textFieldExpression><![CDATA[$F{documentos_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="0" width="89" height="63" uuid="5cbf6e11-933f-4a3a-828c-d37cca84d959"/>
+				<textFieldExpression><![CDATA[$F{documentos_detalle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="0" width="43" height="63" uuid="04fa88c4-db5a-49b7-834e-c47013d240cb"/>
+				<textFieldExpression><![CDATA[$F{documentos_tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="0" width="142" height="63" uuid="cf236c90-f83e-48b5-a40a-fa8bf0f74f96"/>
+				<textFieldExpression><![CDATA[$F{documentos_trab_re}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="546" y="0" width="33" height="63" uuid="82c62084-abd1-4da7-b94b-659f3e7fc85d"/>
+				<textFieldExpression><![CDATA[$F{documentos_cant_hojas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="579" y="0" width="71" height="63" uuid="77cf11e7-f182-4b5e-ab27-b79722b9443b"/>
+				<textFieldExpression><![CDATA[$F{documentos_entregado_a}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="650" y="0" width="71" height="63" uuid="e96ded1e-bf38-4e4a-b0e4-3bb92ab50794"/>
+				<textFieldExpression><![CDATA[$F{documentos_fecha_prepar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="721" y="0" width="71" height="63" uuid="45b6e1bc-1b03-4a87-b9db-07f9c1f3a950"/>
+				<textFieldExpression><![CDATA[$F{documentos_fecha_entrega}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="725" y="0" width="1" height="67" uuid="7ab0fd50-5b78-4044-9f8c-c7aba5f06bbe"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="302" y="5" width="80" height="20" uuid="9c397700-d3cd-4596-913f-2e823174250f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="382" y="5" width="40" height="20" uuid="3c911c92-f89f-41b2-a378-8f76a106a098"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="1" splitType="Stretch"/>
+	</summary>
+</jasperReport>
